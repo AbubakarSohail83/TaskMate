@@ -1,1 +1,29 @@
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Environment variables
 .env
+
+# Media/uploads (optional – exclude if not versioning user-uploaded files)
+media/
+
+# Ignore only specific media if you want to keep others
+# media/avatars/
+
+# PostgreSQL doesn't need this, but include just in case someone switches
+*.sqlite3
+
+# VSCode / JetBrains project files
+.vscode/
+.idea/
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Python virtualenvs (optional)
+venv/
+.env/
+env/
