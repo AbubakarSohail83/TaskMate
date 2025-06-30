@@ -32,6 +32,14 @@ DEBUG = config('DEBUG', default=True, cast=bool)
 ALLOWED_HOSTS = []
 MEDIA_URL = config('MEDIA_URL')
 MEDIA_ROOT = BASE_DIR / 'media'
+# Where to go after successful login
+LOGIN_REDIRECT_URL = 'profile'
+
+# Where to go after logging out
+LOGOUT_REDIRECT_URL = 'login'
+
+# Where @login_required redirects unauthenticated users
+LOGIN_URL = 'login'
 
 # Application definition
 
@@ -44,7 +52,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'tasks',
     'accounts',
+    'tailwind',
+    'theme',
+    # 'django_browser_reload',
 ]
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -61,7 +74,7 @@ ROOT_URLCONF = 'core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -73,7 +86,9 @@ TEMPLATES = [
     },
 ]
 
+
 WSGI_APPLICATION = 'core.wsgi.application'
+TAILWIND_APP_NAME = 'theme'
 
 
 # Database
@@ -131,3 +146,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "theme/static",
+]
